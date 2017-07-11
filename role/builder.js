@@ -9,11 +9,14 @@ var roleBuilder =  {
       }
       else {
         creep.memory.isBuilding = true;
-        const target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+        var target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
         if(target) {
             if(creep.build(target) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(target);
             }
+        } else {
+          target = Game.spawns.CommiSpawn
+          creep.moveTo(target)
         }
         if(creep.carry.energy === 0)
             creep.memory.isBuilding = false;
@@ -21,4 +24,4 @@ var roleBuilder =  {
     }
 }
 
-module.exports = roleBuilder;
+module.exports = roleBuilder

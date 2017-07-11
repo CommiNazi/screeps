@@ -19,4 +19,4 @@ var roleCarrier =  {
     }
 }
 
-module.exports = roleCarrier;
+module.exports = roleCarrier
