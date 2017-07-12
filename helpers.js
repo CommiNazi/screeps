@@ -12,4 +12,15 @@ var distance = function(x1, y1, x2, y2) {
   var b = y1 - y2
   return Math.sqrt( a*a + b*b )
 }
+
+var garbageCollect = function() {
+  for (var name in Memory.creeps) {
+      if (!Game.creeps[name]) {
+          delete Memory.creeps[name];
+          console.log('Funeral held for:', name);
+      }
+  }
+}
+
 module.exports.distance = distance
+module.exports.garbageCollect = garbageCollect
